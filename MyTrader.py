@@ -48,8 +48,8 @@ class MyTrader(opy.Streamer):  # 25
         # transforms the time information to a DatetimeIndex object
         self.df.index = pd.DatetimeIndex(self.df['time'])  # 39
         # resamples the data set to a new, homogeneous interval
-        #dfr = self.df.resample('5s').last()  # 40
-        dfr = self.df  # 40
+        dfr = self.df.resample('5s').sum()  # 40
+        #dfr = self.df  # 40
         # calculates the log returns
         dfr['returns'] = np.log(dfr['ask'] / dfr['ask'].shift(1))  # 41
         # derives the positioning according to the momentum strategy
