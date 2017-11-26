@@ -11,9 +11,10 @@ oanda = opy.API(environment='practice',
                 access_token=config['oanda']['access_token'])
 #api = API(access_token="77e52f20c91e859b1edbf6f63a049994-0d58a82089e68f5437225b0daffbad96")
 #accountID = "101-001-7189583-001"
-api = API(access_token="280131fad16391b7433e29967e7fb384-9b1ad7bee86ec27e2d9234147accbea3")
-accountID = "101-011-7185005-001"
-
+#api = API(access_token="280131fad16391b7433e29967e7fb384-9b1ad7bee86ec27e2d9234147accbea3")
+api = API(access_token=(config['oanda']['access_token'].replace("'","")))
+#accountID = "101-011-7185005-001"
+accountID = config['oanda']['accountID']
 class MyTrader(opy.Streamer):  # 25
     def __init__(self, momentum, *args, **kwargs):  # 26
         opy.Streamer.__init__(self, *args, **kwargs)  # 27
